@@ -12,8 +12,13 @@
         select * from t_user where username like "%"#{username}"%";
     </select>
 
+
     <!--int deleteMore(@Param("ids") String ids);-->
     <delete id="deleteMore">
         delete from t_user where id in (${ids})
     </delete>
+    <!--List<User> getUserByTableName(@Param("tableName") String tableName);-->
+    <select id="getUserByTableName" resultType="com.lzc.pojo.User">
+        select * from ${tableName}
+    </select>
 </mapper>
