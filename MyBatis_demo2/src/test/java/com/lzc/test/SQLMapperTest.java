@@ -22,4 +22,12 @@ public class SQLMapperTest {
         List<User> a = mapper.getUserByLike("a");
         System.out.println(a);
     }
+    @Test
+    public void testDeleteMore(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SQLMapper mapper = sqlSession.getMapper(SQLMapper.class);
+        int i = mapper.deleteMore("1,2,3");
+        System.out.println(i);
+    }
+
 }
