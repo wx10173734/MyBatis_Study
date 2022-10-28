@@ -11,7 +11,7 @@ import lombok.ToString;
  * @Date: 2022/10/28 14:33
  */
 @Data
-@AllArgsConstructor
+
 @NoArgsConstructor
 @ToString
 public class Emp {
@@ -21,4 +21,21 @@ public class Emp {
     private String sex;
     private String email;
     private Dept dept;
+
+    public Emp(Integer eid, String empName, Integer age, String sex, String email) {
+        this.eid = eid;
+        this.empName = empName;
+        this.age = age;
+        this.sex = sex;
+        this.email = email;
+    }
+
+    public Emp(Integer eid, String empName, Integer age, String sex, String email, Dept dept) {
+        this.eid = eid;
+        this.empName = empName;
+        this.age = age;
+        this.sex = sex;
+        this.email = email;
+        this.dept = dept;
+    }
 }
