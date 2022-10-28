@@ -94,5 +94,12 @@
         where eid = #{eid}
     </select>
 
+    
+    <select id="getDeptAndEmpByStepTwo" resultType="com.lzc.pojo.Emp">
+        select *
+        from t_emp where did = #{did};
+    </select>
+
+
 
 </mapper>

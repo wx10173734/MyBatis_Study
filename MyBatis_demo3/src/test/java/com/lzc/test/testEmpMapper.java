@@ -1,6 +1,8 @@
 package com.lzc.test;
 
+import com.lzc.mapper.DeptMapper;
 import com.lzc.mapper.EmpMapper;
+import com.lzc.pojo.Dept;
 import com.lzc.pojo.Emp;
 import com.lzc.utils.SqlSessionUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -32,6 +34,12 @@ public class testEmpMapper {
      * a>级联属性赋值
      * b>association
      * c>分布查询
+     *
+     *
+     *
+     * 处理一对多的映射关系
+     * a>collection
+     * b>分布查询
      */
 
 
@@ -60,5 +68,23 @@ public class testEmpMapper {
         System.out.println(emp.getEmpName());
         System.out.println("------------");
         System.out.println(emp.getDept());
+    }
+
+    @Test
+    public void testGetDeptAndEmp(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+        Dept deptAndEmp = mapper.getDeptAndEmp(1);
+        System.out.println(deptAndEmp);
+
+    }
+    @Test
+    public void testGetDeptAndEmpByStep(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+        Dept deptAndEmp = mapper.getDeptAndEmpByStepOne(1);
+//        System.out.println(deptAndEmp);
+        System.out.println(deptAndEmp.getDeptName());
+
     }
 }

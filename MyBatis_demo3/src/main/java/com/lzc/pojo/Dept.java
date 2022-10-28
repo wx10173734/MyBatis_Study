@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 /**
  * @title: Dept
  * @Author luozouchen
@@ -17,4 +19,6 @@ import lombok.ToString;
 public class Dept {
     private Integer did;
     private String deptName;
+
+    private List<Emp> emps;
 }
