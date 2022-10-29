@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
  * @title: Emp
  * @Author luozouchen
@@ -14,7 +16,7 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @ToString
-public class Emp {
+public class Emp implements Serializable {
     private Integer eid;
     private String empName;
     private Integer age;
